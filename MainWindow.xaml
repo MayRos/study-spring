@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1" 
+        xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        d:DataContext="{d:DesignInstance Type=local:Class1}"
         mc:Ignorable="d"
         Title="WPF学习" Height="450" Background="#FFB4ECB9" Width="800" HorizontalAlignment="Stretch">
     <Window.Resources>
@@ -11,27 +13,57 @@
     </Window.Resources>
     <Grid x:Name="mainPanel" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="163*"/>
-            <RowDefinition Height="114*"/>
-            <RowDefinition Height="158*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="323*"/>
+            <RowDefinition Height="58*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="357*"/>
-            <ColumnDefinition Width="188*"/>
-            <ColumnDefinition Width="59*"/>
-            <ColumnDefinition Width="196*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="637*"/>
+
+            <ColumnDefinition Width="90*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="点击" Content="点击" Click="print">
+        <xcad:DockingManager x:Name="_dockingManager" AllowMixedOrientation="True" Grid.Row="1" Grid.Column="1">
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel>
+                    <xcad:LayoutAnchorablePane DockWidth="460">
+                        <xcad:LayoutAnchorable ContentId="OftenPanel"
+                                            Title="常用"
+                                            CanHide="False"
+                                            CanClose="False" >
+                            <UserControl Name="OftenRegion"/>
+                        </xcad:LayoutAnchorable>
+                    </xcad:LayoutAnchorablePane>
+                    <xcad:LayoutDocumentPaneGroup DockWidth="2*">
+                        <xcad:LayoutDocumentPane DockHeight="*" DockWidth="*">
+                            <xcad:LayoutDocument ContentId="Nuc"
+                                                 Title="NUC"
+                                                 CanClose="False">
+                                <UserControl Name="NUC"></UserControl>
+                            </xcad:LayoutDocument>
+                        
+                            <xcad:LayoutDocument ContentId="Nuc2"
+                                                 Title="NUC2"
+                                                 CanClose="False">
+                                <UserControl Name="NUC2"></UserControl>
+                            </xcad:LayoutDocument>
+                        </xcad:LayoutDocumentPane>
+                    </xcad:LayoutDocumentPaneGroup>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+        <Button x:Name="点击" Content="点击" Click="print" Margin="0,0,0,8" HorizontalAlignment="Center">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                   <Border CornerRadius="20,20,20,20" BorderBrush="#FFE29E9E" BorderThickness="10,10,10,10">
+                    <Border CornerRadius="20,20,20,20" BorderBrush="#FFE29E9E" BorderThickness="10,10,10,10">
                         <Border.Background>#FFAEACDC</Border.Background>
                         <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
-                    </Border><!-- -->
+                    </Border>
+                    <!-- -->
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="取消" Grid.Row="1" Content="取消" Margin="30,40,200,40" >
+        <Button x:Name="取消" Grid.Row="1" Content="取消" Margin="30,40,10,18" Click="changePanel" >
             <Button.Template >
                 <ControlTemplate TargetType="{x:Type Button}" >
                     <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="1" CornerRadius="7,7,7,7">
@@ -41,9 +73,11 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-       
-        <TextBlock Grid.Column="1" Background="White"/>
-        <ListBox Grid.Column="2" Background="#FFE69E9E"></ListBox>
+        <TextBlock x:Name="定时装置1" Grid.Column="1" Background="White" Text="{Binding Time}" ScrollViewer.HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap" Grid.Row="2" />
+        <ScrollViewer Grid.Row="0" Grid.Column="1" Margin="0,0,0,8">
+            <TextBlock x:Name="数据绑定1" Grid.Column="1" Background="White" Text="{Binding Text}" ScrollViewer.HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap" />
+        </ScrollViewer>
+        <UserControl x:Name="切换" ></UserControl>
     </Grid>
 
 </Window>

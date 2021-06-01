@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\wm\work\learn\WpfApp1\App.xaml
-11407045341
+3372933793
 
-6-1918860125
-192-1533232326
-MainWindow.xaml;
+11-2077097292
+1971972419039
+MainWindow.xaml;Views\ChildView1.xaml;Views\ChildView2.xaml;
 
-True
+False
 

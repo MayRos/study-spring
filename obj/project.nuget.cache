@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "TSSJJWlDcizo0FLvKbUnkyGXl97fRRq/NGRuTKRXFB/uLKQ9UpaT+/6D2b1+xvjWKDgBc5kYt0vwzMyMtwtzbA==",
+  "dgSpecHash": "YurEjk7rn+JupjLs63qYuUxiplchhoEfEq+WQhDC7mKztcJoBSf5WW5xMonBqs8kGnAJGRIGF4P9qAUKtSmDIQ==",
   "success": true,
   "projectFilePath": "C:\\wm\\work\\learn\\WpfApp1\\WpfApp1.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\extended.wpf.toolkit\\4.0.1\\extended.wpf.toolkit.4.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8”而不是项目目标框架“.NETCoreApp,Version=v3.1”还原包“Extended.Wpf.Toolkit 4.0.1”。此包可能与项目不完全兼容。",
+      "libraryId": "Extended.Wpf.Toolkit",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
